@@ -8,6 +8,9 @@
 #include <stdio.h>
 #include <string.h>
 
+int execute(char *command);
 
+/* helper functions */
+int _strcmp(char *s1, char *s2);
 
 #endif /* SHELL_H */
