@@ -18,5 +18,6 @@ int execute(char *command);
 
 /* helper functions */
 int _strcmp(char *s1, char *s2);
+int _strlen(char *s);
 
 #endif /* SHELL_H */

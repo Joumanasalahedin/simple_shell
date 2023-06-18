@@ -16,15 +16,15 @@ char *shell_read_line(void)
 	printf("$ ");
 	characters = getline(&command, &bufsize, stdin);
 
-	if (characters = -1)
+	if (characters == -1)
 	{
 		free(command);
 		printf("\n");
 		exit(EXIT_SUCCESS);
 	}
-	if (command[characters -1] == '\n')
+	if (command[characters - 1] == '\n')
 	{
-		command[characters -1] = '\0';
+		command[characters - 1] = '\0';
 	}
 
 	status = execute(command);
