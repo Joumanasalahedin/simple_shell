@@ -2,7 +2,7 @@
 
 /**
   * execute - executes a command
-  * @command: command argument
+  * @args: arguments
   * Return: 1 (Success)
   */
 
