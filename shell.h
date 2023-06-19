@@ -13,11 +13,17 @@
 #include <dirent.h>
 #include <signal.h>
 
+#define TOK_DELIM " \t\n"
+#define BUFSIZE 64
+
+int command_args(char *command);
+char **shell_split_line(char *command);
 char *shell_read_line(void);
 int execute(char *command);
 
 /* helper functions */
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
+char *_strdup(char *str);
 
 #endif /* SHELL_H */
