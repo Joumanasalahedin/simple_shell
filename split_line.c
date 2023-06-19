@@ -17,7 +17,7 @@ char **shell_split_line(char *command)
 	if (!toks)
 	{
 		perror("Error");
-			exit(EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 
 	tok = strtok(command, " \t\n");

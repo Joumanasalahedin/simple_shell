@@ -9,22 +9,20 @@
 
 int command_args(char *command)
 {
-	char *args[BUFSIZE];
-	int a = 0;
+	char **args;
 	int status = -1;
-	char *tok;
 
-	tok = strtok(command, " ");
+	args = shell_split_line(command);
 
-	while (tok != NULL)
+	if (args == NULL)
 	{
-		args[a++] = tok;
-		tok = strtok(NULL, " ");
+		printf("Error: %s\n", command);
+		return (-1);
 	}
 
-	args[a] = NULL;
+	status = execute(args);
 
-	status = execute(args[0]);
+	free(args);
 
 	if (status == -1)
 	{

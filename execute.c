@@ -6,25 +6,21 @@
   * Return: 1 (Success)
   */
 
-int execute(char *command)
+int execute(char **args)
 {
 	pid_t pid = fork();
-	char *args[2];
 	int status;
 
 	if (pid == -1)
 	{
-		perror("Error");
+		perror("./hsh");
 		return (-1);
 	}
 	else if (pid == 0)
 	{
-		args[0] = command;
-		args[1] = NULL;
-
-		if (execv(command, args) == -1)
+		if (execv(args[0], args) == -1)
 		{
-			perror("Error");
+			perror("./hsh");
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -32,7 +28,7 @@ int execute(char *command)
 	{
 		if (wait(&status) == -1)
 		{
-			perror("wait");
+			perror("./hsh");
 			return (-1);
 		}
 	}

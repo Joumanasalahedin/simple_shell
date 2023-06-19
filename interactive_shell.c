@@ -27,7 +27,7 @@ char *shell_read_line(void)
 		command[characters - 1] = '\0';
 	}
 
-	status = execute(command);
+	status = command_args(command);
 	if (status == -1)
 	{
 		printf("Error, %s\n", command);

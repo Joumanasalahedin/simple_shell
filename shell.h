@@ -19,7 +19,7 @@
 int command_args(char *command);
 char **shell_split_line(char *command);
 char *shell_read_line(void);
-int execute(char *command);
+int execute(char **args);
 
 /* helper functions */
 int _strcmp(char *s1, char *s2);
