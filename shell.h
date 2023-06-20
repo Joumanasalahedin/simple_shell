@@ -16,6 +16,7 @@
 #define TOK_DELIM " \t\n"
 #define BUFSIZE 64
 
+char *get_path(char *command);
 int command_args(char *command);
 char **shell_split_line(char *command);
 char *shell_read_line(void);
@@ -25,5 +26,7 @@ int execute(char **args);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 char *_strdup(char *str);
+char *_strcat(char *dest, char *src);
+char *_strcpy(char *dest, char *src);
 
 #endif /* SHELL_H */
