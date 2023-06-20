@@ -9,12 +9,12 @@
 char *shell_read_line(void)
 {
 	char *command = NULL;
-	size_t bufsize = 0;
-	ssize_t characters;
+	ssize_t characters = 0;
 	int status = -1;
 
 	printf("$ ");
-	characters = getline(&command, &bufsize, stdin);
+	fflush(stdout);
+	command = _getline();
 
 	if (characters == -1)
 	{
