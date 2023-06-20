@@ -16,7 +16,7 @@ char *get_path(char *command)
 
 	if (access(command, X_OK) == 0)
 	{
-		return _strdup(command);
+		return (_strdup(command));
 	}
 
 	if (!path)
