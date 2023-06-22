@@ -27,6 +27,13 @@ char *shell_read_line(void)
 		command[characters - 1] = '\0';
 	}
 
+	if (strcmp(command, "exit") == 0)
+	{
+		sh_exit();
+		free(command);
+		exit(EXIT_SUCCESS);
+	}
+
 	status = command_args(command);
 	if (status == -1)
 	{
