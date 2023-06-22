@@ -20,7 +20,7 @@ char **shell_split_line(char *command)
 		exit(EXIT_FAILURE);
 	}
 
-	tok = strtok(command, " \t\n");
+	tok = _strtok(command, " \t\n");
 
 	while (tok != NULL)
 	{
@@ -38,7 +38,7 @@ char **shell_split_line(char *command)
 				exit(EXIT_FAILURE);
 			}
 		}
-		tok = strtok(NULL, " \t\n");
+		tok = _strtok(NULL, " \t\n");
 	}
 
 	toks[p] = NULL;

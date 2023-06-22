@@ -34,5 +34,6 @@ int _strlen(char *s);
 char *_strdup(char *str);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
+char *_strtok(char *str, const char *delim);
 
 #endif /* SHELL_H */
