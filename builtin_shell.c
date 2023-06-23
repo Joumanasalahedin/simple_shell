@@ -69,10 +69,10 @@ int sh_help(char **args)
 	printf("\n---help hsh---\n");
 	printf("command and arguments, enter\n");
 	printf("Built-in commands:\n");
-	printf(" -> cd\n");
-	printf(" -> env\n");
-	printf(" -> exit\n");
-	printf(" -> help\n");
+	printf(" -> sh_cd\n");
+	printf(" -> sh_env\n");
+	printf(" -> sh_exit\n");
+	printf(" -> sh_help\n");
 	printf("man command for information. \n\n");
 
 	return (1);

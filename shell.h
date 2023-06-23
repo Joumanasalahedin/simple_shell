@@ -14,15 +14,34 @@
 #include <signal.h>
 
 #define TOK_DELIM " \t\n"
+#define ENV_DELIM "="
 #define BUFSIZE 64
 extern char **environ;
 
+/**
+ * struct list - linked list for env variables
+ * @v: holds env variable string
+ * @next: next node
+ */
+typedef struct list
+{
+	char *v;
+	struct list *next;
+} list_t;
+
+int search_env(list_t *env, char *s);
+int sh_unsetenv(list_t **env, char **s);
+int sh_setenv(list_t **env, char **s);
+list_t *sh_add_node_end(list_t **head, char *s);
+int delete_nodeint_at_index(list_t **head, int index);
+char *sh_getenv(const char *n, char **envp);
 char *get_path(char *command);
 int command_args(char *command);
 char **shell_split_line(char *command);
 char *shell_read_line(void);
 int execute(char **args);
 char *_getline(void);
+void sh_free_double_ptr(char **s);
 int sh_cd(char **args);
 int sh_exit(void);
 int sh_env(char **args);
