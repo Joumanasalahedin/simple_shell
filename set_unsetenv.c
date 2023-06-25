@@ -51,7 +51,7 @@ int sh_unsetenv(list_t **env, char **s)
 
 	if (s[1] == NULL)
 	{
-		write(STDOUT_FILENO, "Few args\n", 18);
+		write(STDOUT_FILENO, "Few args\n", 10);
 		sh_free_double_ptr(s);
 		return (-1);
 	}
@@ -89,7 +89,7 @@ int sh_setenv(list_t **env, char **s)
 
 	if (s[1] == NULL || s[2] == NULL)
 	{
-		write(STDOUT_FILENO, "Few args\n", 18);
+		write(STDOUT_FILENO, "Few args\n", 10);
 		sh_free_double_ptr(s);
 		return (-1);
 	}
