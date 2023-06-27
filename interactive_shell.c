@@ -16,12 +16,14 @@ char *shell_read_line(void)
 	fflush(stdout);
 	command = _getline();
 
-	if (characters == -1)
+	if (command == NULL)
 	{
-		free(command);
 		printf("\n");
 		exit(EXIT_SUCCESS);
 	}
+
+	characters = _strlen(command);
+
 	if (command[characters - 1] == '\n')
 	{
 		command[characters - 1] = '\0';
