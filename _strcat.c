@@ -12,6 +12,11 @@ char *_strcat(char *dest, char *src)
 {
 	char *start = dest;
 
+	if (dest == NULL || src == NULL)
+	{
+		return (NULL);
+	}
+
 	while (*dest != '\0')
 	{
 		dest++;
