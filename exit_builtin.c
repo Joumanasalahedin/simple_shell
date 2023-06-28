@@ -2,13 +2,13 @@
 
 /**
  * sh_exit - exit the shell
- *
+ * @args: arguments
  * Return: 0 and exit shell
  */
 
 int sh_exit(char **args)
 {
-	if (args[1])
+	if (args && args[1])
 	{
 		return (cd_atoi(args[1]));
 	}
