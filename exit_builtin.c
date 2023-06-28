@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <stdlib.h>
 
 /**
  * sh_exit - exit the shell
@@ -10,11 +11,12 @@ int sh_exit(char **args)
 {
 	if (args && args[1])
 	{
-		return (cd_atoi(args[1]));
+		int status = (cd_atoi(args[1]));
+		exit(status);
 	}
 	else
 	{
-		return (2);
+		exit(2);
 	}
 }
 
