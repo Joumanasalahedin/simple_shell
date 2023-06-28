@@ -30,6 +30,7 @@ typedef struct list
 	struct list *next;
 } list_t;
 
+int cd_atoi(char *s);
 char *cd_strdup(char *s, int b);
 void cd_home(list_t **env, char *curr);
 char *concat_str(char *s1, char *s2);
@@ -48,7 +49,7 @@ int execute(char **args);
 char *_getline(void);
 void sh_free_double_ptr(char **s);
 int sh_cd(char **args);
-int sh_exit(void);
+int sh_exit(char **args);
 int sh_env(char **args);
 int sh_help(char **args);
 
