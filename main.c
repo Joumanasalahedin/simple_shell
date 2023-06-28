@@ -7,9 +7,12 @@
 
 int main(void)
 {
-	while (1)
+	if (isatty(STDIN_FILENO) == 1)
 	{
-		shell_read_line();
+		while (1)
+		{
+			shell_read_line();
+		}
 	}
 	return (0);
 }

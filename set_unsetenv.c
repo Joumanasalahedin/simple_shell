@@ -1,42 +1,6 @@
 #include "shell.h"
 
 /**
- * sh_getenv - envirronment variable
- * @n: name
- * @envp: pointer
- *
- * Return: path.
- */
-
-char *sh_getenv(const char *n, char **envp)
-{
-	char *n_var = 0;
-	char *v_value = 0;
-	char *curr_v = 0;
-	int j = 0;
-
-	for (j = 0; envp[j] != NULL; j++)
-	{
-		curr_v = _strdup(envp[j]);
-		if (curr_v == NULL)
-		{
-			printf("Error\n");
-			exit(EXIT_FAILURE);
-		}
-		n_var = _strtok(curr_v, "=");
-		v_value = _strtok(NULL, "=");
-
-		if (strcmp(n_var, n) == 0)
-		{
-			free(curr_v);
-			return (v_value);
-		}
-		free(curr_v);
-	}
-	return (NULL);
-}
-
-/**
  * sh_unsetenv - remove env variable
  * @env: environment
  * @s: string command

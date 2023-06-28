@@ -12,29 +12,6 @@ int sh_exit(void)
 }
 
 /**
- * sh_cd - change directory
- * @args: arguments
- *
- * Return: 1 or 0.
- */
-
-int sh_cd(char **args)
-{
-	if (args[1] == NULL)
-	{
-		printf("arguments to \"cd\"\n");
-		return (1);
-	}
-
-	if (chdir(args[1]) != 0)
-	{
-		perror("chdir");
-		return (1);
-	}
-	return (0);
-}
-
-/**
  * sh_env - prints the current environment
  * @args: arguments
  *

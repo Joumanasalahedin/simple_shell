@@ -12,6 +12,7 @@
 #include <fcntl.h>
 #include <dirent.h>
 #include <signal.h>
+#include <limits.h>
 
 #define TOK_DELIM " \t\n"
 #define ENV_DELIM "="
@@ -29,12 +30,16 @@ typedef struct list
 	struct list *next;
 } list_t;
 
+char *cd_strdup(char *s, int b);
+void cd_home(list_t **env, char *curr);
+char *concat_str(char *s1, char *s2);
+int cd_setenv(list_t **env, char *n, char *directory);
 int search_env(list_t *env, char *s);
 int sh_unsetenv(list_t **env, char **s);
 int sh_setenv(list_t **env, char **s);
 list_t *sh_add_node_end(list_t **head, char *s);
 int delete_nodeint_at_index(list_t **head, int index);
-char *sh_getenv(const char *n, char **envp);
+char *sh_getenv( char *s, list_t **env);
 char *get_path(char *command);
 int command_args(char *command);
 char **shell_split_line(char *command);
