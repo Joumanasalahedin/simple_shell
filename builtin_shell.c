@@ -4,21 +4,22 @@
  * sh_env - prints the current environment
  * @args: arguments
  *
- * Return: 1 on success
+ * Return: 0 success
  */
 
 int sh_env(char **args)
 {
 	char **env = environ;
+	int j = 0;
 	(void)(**args);
 
-	while (*env != NULL)
-
+	while (env[j])
 	{
-		printf("%s\n", *env);
-		env++;
+		write(STDOUT_FILENO, env[j], strlen(env[j]));
+		write(STDOUT_FILENO, "\n", 1);
+		j++;
 	}
-	return (1);
+	return (0);
 }
 
 /**
