@@ -3,7 +3,7 @@
 /**
  * sh_exit - exit the shell
  * @args: arguments
- * Return: 0 and exit shell
+ * Return: 2 and exit shell
  */
 
 int sh_exit(char **args)
@@ -14,7 +14,7 @@ int sh_exit(char **args)
 	}
 	else
 	{
-		return (0);
+		return (2);
 	}
 }
 
