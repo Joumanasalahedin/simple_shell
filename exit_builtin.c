@@ -16,7 +16,7 @@ int sh_exit(char **args)
 	}
 	else
 	{
-		exit(0);
+		_exit(0);
 	}
 }
 
