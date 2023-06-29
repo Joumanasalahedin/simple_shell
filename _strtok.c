@@ -94,7 +94,7 @@ char **_strtok(char *str, char *delim)
 		if (str[si] != delim_ch)
 		{
 			len = token_length(str, si, delim_ch);
-			toks[pos] = malloc(sizeof(char) * (length + 1));
+			toks[pos] = malloc(sizeof(char) * (len + 1));
 			if (toks[pos] == NULL)
 				return (NULL);
 			index = 0;
