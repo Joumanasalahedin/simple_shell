@@ -10,18 +10,18 @@
  * Return: 1 or 0
  */
 
-int builtin_c(char **toks, list_t *env, int n, char *command)
+int builtin_c(char **toks, list_t *env, int n)
 {
 	if (toks == NULL || toks[0] == NULL)
 		return (0);
 	if (_strcmp(toks[0], "exit") == 0)
 	{
-		sh_exit(toks, env, n, command);
+		sh_exit(toks, NULL, env, n);
 		return (1);
 	}
 	else if (_strcmp(toks[0], "env") == 0)
 	{
-		pr_env(toks, env);
+		print_env(toks, env);
 		return (1);
 	}
 	else if (_strcmp(toks[0], "unsetenv") == 0)

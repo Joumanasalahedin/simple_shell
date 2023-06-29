@@ -26,7 +26,9 @@ typedef struct list
 
 } list_t;
 
-int builtin_c(char **toks, list_t *env, int n, char *command);
+int builtin_c(char **toks, list_t *env, int n);
+char *int_string(int num);
+int number_len(int num);
 int search_env(list_t *env, char *s);
 int sh_setenv(list_t **env, char **s);
 int sh_unsetenv(list_t **env, char **s);
@@ -39,6 +41,7 @@ int execute(char **comand, list_t *env, int num);
 int run_shell(char **environ);
 void sh_free_double_ptr(char **s);
 int sh_exit(char **s, char **cmd, list_t *env, int n);
+int print_env(char **s, list_t *env);
 int cd_atoi(char *s);
 void ctrl_c(int n);
 void ctrl_d(int i, char *command, list_t *env);
