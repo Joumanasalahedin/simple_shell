@@ -47,12 +47,15 @@ void ctrl_c(int n);
 void ctrl_d(int i, char *command, list_t *env);
 char *ignore_spaces(char *str);
 size_t _getline(char **str);
+char *find_exec(char *command, list_t *env);
 
 /** strtok **/
 int token_length(char *input, int position, char delim);
 int count_delim(char *input, char delim);
 char *ignore_delim(char *str, char delim);
 char **_strtok(char *str, char *delim);
+int c_delims(char *str, char delim);
+char **token_string(char *str, char *delim);
 
 /** linked list **/
 size_t print_list(list_t *h);

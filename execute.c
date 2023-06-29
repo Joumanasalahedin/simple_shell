@@ -20,7 +20,7 @@ int execute(char **command, list_t *env, int num)
 	}
 	else
 	{
-		path = _which(command[0], env);
+		path = find_exec(command[0], env);
 		if (path == NULL || access(path, X_OK) != 0)
 		{
 			not_found(command[0], num, env);

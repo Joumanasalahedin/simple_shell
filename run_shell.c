@@ -46,7 +46,7 @@ int run_shell(char **environ)
 		token = _strtok(command, " ");
 		free(n_command);
 
-		exit_stat = builtin_c(token, env, line_no, NULL);
+		exit_stat = builtin_c(token, env, line_no);
 		if (exit_stat)
 			break;
 
