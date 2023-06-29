@@ -55,6 +55,7 @@ char *shell_read_line(void);
 int execute(char **args);
 char *_getline(void);
 void sh_free_double_ptr(char **s);
+void exit_c(char **s, list_t *env);
 int sh_env(char **args);
 int sh_help(char **args);
 

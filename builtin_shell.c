@@ -1,6 +1,18 @@
 #include "shell.h"
 
 /**
+ * exit_c - user type command
+ * @s: typed cmd
+ * @env: variable
+ */
+void exit_c(char **s, list_t *env)
+{
+	sh_free_double_ptr(s);
+	free_linked(env);
+	_exit(0);
+}
+
+/**
  * sh_env - prints the current environment
  * @args: arguments
  *
