@@ -26,6 +26,7 @@ typedef struct list
 
 } list_t;
 
+void n_found(char *s, int c_f, list_t *env);
 int builtin_c(char **toks, list_t *env, int n);
 char *int_string(int num);
 int number_len(int num);
