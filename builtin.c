@@ -5,7 +5,6 @@
  * @toks: typed command
  * @env: variables
  * @n: error massage
- * @command: cmd to free
  *
  * Return: 1 or 0
  */

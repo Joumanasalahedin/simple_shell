@@ -10,7 +10,7 @@
 int c_delims(char *str, char delim)
 {
 	int index = 0, num_delimiters = 0;
-	
+
 	while (str[index] != '\0')
 	{
 		if (str[index] == delim)
@@ -42,23 +42,22 @@ char **token_string(char *str, char *delim)
 
 	while (str[se] != '\0')
 		se++;
-	
 	while (si < se)
 	{
 		length = token_length(str, si, delim_char);
 		tokens[position] = malloc(sizeof(char) * (length + 1));
-		
+
 		if (tokens[position] == NULL)
 			return (NULL);
 		index = 0;
-		
+
 		while ((str[si] != delim_char) && (str[si] != '\0'))
 		{
 			tokens[position][index] = str[si];
 			index++;
 			si++;
 		}
-		
+
 		tokens[position][index] = '\0';
 		position++;
 		si++;

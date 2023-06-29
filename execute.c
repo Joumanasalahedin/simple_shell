@@ -2,7 +2,7 @@
 
 /**
   * execute - executes commands typed into shell
-  * command: command
+  * @command: command
   * @env: environmental variable
   * @num: user command used in error message
   * Return: 0

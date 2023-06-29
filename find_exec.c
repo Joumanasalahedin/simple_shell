@@ -21,18 +21,18 @@ char *find_exec(char *command, list_t *env)
 	{
 		if (tokens[i][0] == '\0')
 			cat = getcwd(cat, 0);
-		
+
 		else
 			cat = _strdup(tokens[i]);
 		cat = _strcat(cat, "/");
 		cat = _strcat(cat, command);
-		
+
 		if (access(cat, F_OK) == 0)
 		{
 			sh_free_double_ptr(tokens);
 			return (cat);
 		}
-		
+
 		free(cat);
 		i++;
 	}
