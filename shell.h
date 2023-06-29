@@ -49,6 +49,8 @@ void ctrl_d(int i, char *command, list_t *env);
 char *ignore_spaces(char *str);
 size_t _getline(char **str);
 char *find_exec(char *command, list_t *env);
+char *s_ignore(char *str);
+void non_interactive(list_t *env);
 
 /** strtok **/
 int token_length(char *input, int position, char delim);

@@ -25,24 +25,6 @@ void sh_free_double_ptr(char **s)
 }
 
 /**
- * free_linked - free linked list
- * @list: linked list
- */
-
-void free_linked(list_t *list)
-{
-	list_t *fresh_n;
-
-	while (list != NULL)
-	{
-		fresh_n = list;
-		list = list->next;
-		free(fresh_n->var);
-		free(fresh_n);
-	}
-}
-
-/**
  * illegal_n - print error
  * @s: string
  * @cmd: typed command
