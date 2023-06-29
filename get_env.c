@@ -7,7 +7,7 @@
  * Return: (0)
  */
 
-int pr_env(char **s, list_t *env)
+int print_env(char **s, list_t *env)
 {
 	sh_free_double_ptr(s);
 	print_list(env);
