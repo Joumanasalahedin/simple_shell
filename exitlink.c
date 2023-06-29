@@ -37,7 +37,7 @@ void free_linked(list_t *list)
 	{
 		fresh_n = list;
 		list = list->next;
-		free(fresh_n->vars);
+		free(fresh_n->var);
 		free(fresh_n);
 	}
 }

@@ -18,12 +18,12 @@ void ctrl_c(int n)
   * @env: variable
   */
 
-void ctrl_d(int i, char *command, list_t *env)
+void ctrl_d(int c, char *command, list_t *env)
 {
 	if (c == 0)
 	{
 		free(command);
-		sh_free_linked_list(env);
+		free_linked(env);
 
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "\n", 1);

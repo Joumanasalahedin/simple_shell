@@ -30,7 +30,7 @@ int run_shell(char **environ)
 		ctrl_d(i, command, env);
 
 		n_command = command;
-		command = ignore_space(command);
+		command = ignore_spaces(command);
 		n = 0;
 
 		while (command[n] != '\n')
@@ -46,7 +46,7 @@ int run_shell(char **environ)
 		token = _strtok(command, " ");
 		free(n_command);
 
-		exit_stat = builtin(token, env, line_no, NULL);
+		exit_stat = builtin_c(token, env, line_no, NULL);
 		if (exit_stat)
 			break;
 
