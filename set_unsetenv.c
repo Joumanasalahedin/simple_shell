@@ -1,5 +1,34 @@
 #include "shell.h"
 
+
+/**
+ * search_env - env variable in linked list
+ * @env: envronment
+ * @s: string
+ *
+ * Return: index
+ */
+
+int search_env(list_t *env, char *s)
+{
+	int index = 0;
+	int e = 0;
+
+	while (env != NULL)
+	{
+		for (e = 0; (env->v)[e] == s[e]; e++)
+		{
+			if (s[e] == '\0')
+			{
+				return (index);
+			}
+		}
+		env = env->next;
+		index++;
+	}
+	return (-1);
+}
+
 /**
  * sh_unsetenv - remove env variable
  * @env: environment

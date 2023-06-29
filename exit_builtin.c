@@ -1,23 +1,31 @@
 #include "shell.h"
-#include <stdlib.h>
 
 /**
  * sh_exit - exit the shell
- * @args: arguments
- * Return: 2 and exit shell
+ * @s: strint to hsh
+ * @env: variable
+ * @n: user command input
+ * @cmd: command
+ * Return: exit shell
  */
 
-int sh_exit(char **args)
+int sh_exit(char **s, char **cmd, list_t *env, int n)
 {
-	if (args && args[1])
+	int val = 0;
+
+	if (s[1] != NULL)
+		val = cd_atoi(s[1]);
+	if (val == -1)
 	{
-		int status = (cd_atoi(args[1]));
-		exit(status);
+		illegal_n(s[1], n, env);
+		sh_free_double_ptr(s);
+		return (2);
 	}
-	else
-	{
-		exit(0);
-	}
+	sh_free_double_ptr(s);
+	free_linked(env);
+	if (cmd != NULL)
+		sh_free_double_ptr(cmd);
+	exit(val);
 }
 
 /**
@@ -50,4 +58,22 @@ int cd_atoi(char *s)
 		j++;
 	}
 	return (max * min);
+}
+
+/**
+ * free_linked - free linked list
+ * @list: linked list
+ */
+
+void free_linked(list_t *list)
+{
+	list_t *fresh_n;
+
+	while (list != NULL)
+	{
+		fresh_n = list;
+		list = list->next;
+		free(fresh_n->v);
+		free(fresh_n);
+	}
 }

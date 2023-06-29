@@ -25,34 +25,6 @@ void sh_free_double_ptr(char **s)
 }
 
 /**
- * search_env - env variable in linked list
- * @env: envronment
- * @s: string
- *
- * Return: index
- */
-
-int search_env(list_t *env, char *s)
-{
-	int index = 0;
-	int e = 0;
-
-	while (!env)
-	{
-		for (e = 0; (env->v)[e] == s[e]; e++)
-		{
-			if (s[e] == '\0')
-			{
-				return (index);
-			}
-		}
-		env = env->next;
-		index++;
-	}
-	return (-1);
-}
-
-/**
  * delete_nodeint_at_index - delets node at index
  * @head: pointer
  * @index: idx node
