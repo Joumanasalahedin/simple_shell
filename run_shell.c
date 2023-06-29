@@ -23,20 +23,15 @@ int run_shell(char **environ)
 			non_interactive(env);
 
 		signal(SIGINT, ctrl_c);
-
 		command = NULL;
 		i = _getline(&command);
-
 		ctrl_d(i, command, env);
-
 		n_command = command;
 		command = ignore_spaces(command);
 		n = 0;
-
 		while (command[n] != '\n')
 			n++;
 		command[n] = '\0';
-
 		if (command[0] == '\0')
 		{
 			free(n_command);
@@ -49,9 +44,7 @@ int run_shell(char **environ)
 		exit_stat = builtin_c(token, env, line_no);
 		if (exit_stat)
 			break;
-
 		exit_stat = execute(token, env, line_no);
 	}
-
 	return (exit_stat);
 }
