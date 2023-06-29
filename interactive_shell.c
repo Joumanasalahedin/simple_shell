@@ -31,6 +31,7 @@ char *shell_read_line(void)
 
 	if (strcmp(command, "exit") == 0)
 	{
+		s_exit();
 		free(command);
 		exit(EXIT_SUCCESS);
 	}
