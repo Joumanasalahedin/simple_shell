@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * pr_env - prints
+ * print_env - prints
  * @s: string
  * @env: environment
  * Return: (0)
