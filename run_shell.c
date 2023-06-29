@@ -8,7 +8,7 @@
 
 int run_shell(char **environ)
 {
-	list_t *env = env_linked_list(environ);
+	list_t *env = list_env(environ);
 	size_t line_no = 0, i, n;
 	int exit_stat = 0;
 	char *command, *n_command;
