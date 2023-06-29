@@ -15,8 +15,9 @@ void sh_free_double_ptr(char **s)
 		return;
 	}
 	while (!*tmp)
-        {
+	{
 		free(*tmp);
+
 		*tmp = NULL;
 		tmp++;
 	}
@@ -54,8 +55,10 @@ void illegal_n(char *s, int cmd, list_t *env)
 	char *hsh = NULL, *number = NULL;
 
 	hsh = h_getenv("_", env);
-       	while (hsh[sum] != '\0')
+
+	while (hsh[sum] != '\0')
 		sum++;
+
 	write(STDOUT_FILENO, hsh, sum);
 	free(hsh);
 	write(STDOUT_FILENO, ": ", 2);

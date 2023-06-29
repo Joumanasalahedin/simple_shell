@@ -21,7 +21,7 @@ int builtin_c(char **toks, list_t *env, int n, char *command)
 	}
 	else if (_strcmp(toks[0], "env") == 0)
 	{
-		h_env(toks, env);
+		pr_env(toks, env);
 		return (1);
 	}
 	else if (_strcmp(toks[0], "unsetenv") == 0)
