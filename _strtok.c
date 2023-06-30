@@ -4,7 +4,7 @@
   * token_length - returns token's length
   * @input: a token
   * @position: index position
-  * @delim:
+  * @delim: delimiter
   * Return: token length
   */
 
@@ -79,10 +79,8 @@ char **_strtok(char *str, char *delim)
 	char **toks = NULL, delim_ch;
 
 	delim_ch = delim[0];
-
 	str = ignore_delim(str, delim_ch);
 	bufsize = count_delim(str, delim_ch);
-
 	toks = malloc(sizeof(char *) * (bufsize + 2));
 
 	if (toks == NULL)
@@ -109,12 +107,10 @@ char **_strtok(char *str, char *delim)
 			toks[pos][index] = '\0';
 			t++;
 		}
-
 		if (si < se && (str[si + 1] != delim_ch && str[si + 1] != '\0'))
 			pos++;
 		si++;
 	}
-
 	pos++;
 	toks[pos] = NULL;
 	return (toks);
