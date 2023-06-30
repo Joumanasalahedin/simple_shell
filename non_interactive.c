@@ -24,7 +24,7 @@ void non_interactive(list_t *env)
 {
 	size_t i = 0, n = 0;
 	int line_no = 0, exit_stat = 0;
-	char *command = NULL, *new = NULL, **com_lines, **toks;
+	char *command = NULL, *new = NULL, **com_lines = NULL, **toks = NULL;
 
 	i = _getline(&command);
 
