@@ -23,14 +23,12 @@ int execute(char **command, list_t *env, int num)
 	{
 		path = find_exec(command[0], env);
 	}
-	
 	if (access(path, X_OK) != 0)
 	{
 		n_found(command[0], num, env);
 		sh_free_double_ptr(command);
 		return (127);
 	}
-
 	else
 	{
 		pid = fork();

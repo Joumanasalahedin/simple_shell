@@ -5,7 +5,7 @@
  * @toks: typed command
  * @env: variables
  * @n: error massage
- *
+ * @command: command
  * Return: 1 or 0
  */
 

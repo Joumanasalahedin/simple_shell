@@ -23,7 +23,8 @@ int run_shell(char **environ)
 		else
 			non_interactive(env);
 		signal(SIGINT, ctrl_c);
-		command = NULL; i = 0;
+		command = NULL;
+		i = 0;
 		i = _getline(&command);
 		ctrl_d(i, command, env);
 		n_command = command;
@@ -34,9 +35,11 @@ int run_shell(char **environ)
 		command[n] = '\0';
 		if (command[0] == '\0')
 		{
-			free(n_command); continue;
+			free(n_command);
+			continue;
 		}
-		token = NULL; token = _strtok(command, " ");
+		token = NULL;
+		token = _strtok(command, " ");
 		if (n_command != NULL)
 			free(n_command);
 		exit_stat = builtin_c(token, env, line_no, NULL);
