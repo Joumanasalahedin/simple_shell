@@ -46,6 +46,7 @@ void non_interactive(list_t *env)
 		line_no++;
 		toks = NULL;
 		toks = _strtok(com_lines[n], " ");
+		exit_stat = 0;
 		exit_stat = builtin_c(toks, env, line_no, NULL);
 		if (exit_stat)
 		{
