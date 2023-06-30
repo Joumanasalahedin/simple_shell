@@ -49,5 +49,5 @@ int execute(char **command, list_t *env, int num)
 		}
 	}
 
-	return WEXITSTATUS(status);
+	return (status);
 }
