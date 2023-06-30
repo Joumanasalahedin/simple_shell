@@ -15,7 +15,7 @@ int run_shell(char **environ)
 	char **token;
 
 	env = list_env(environ);
-	while (1)
+	do
 	{
 		line_no++;
 		if (isatty(STDIN_FILENO))
@@ -46,6 +46,6 @@ int run_shell(char **environ)
 		if (exit_stat)
 			continue;
 		exit_stat = execute(token, env, line_no);
-	}
+	} while (1);
 	return (exit_stat);
 }

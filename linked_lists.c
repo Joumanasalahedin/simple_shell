@@ -22,7 +22,7 @@ size_t print_list(list_t *h)
 		else
 		{
 			length = 0;
-			while (current->var[length] != '\0')
+			while ((current->var)[length] != '\0')
 				length++;
 
 			write(STDOUT_FILENO, current->var, length);

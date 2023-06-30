@@ -35,7 +35,7 @@ size_t _getline(char **str)
 		else
 		{
 			size += i;
-			_strcat(*str, buf);
+			*str = _strcat(*str, buf);
 		}
 	}
 	return (size);
