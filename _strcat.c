@@ -10,25 +10,34 @@
 
 char *_strcat(char *dest, char *src)
 {
-	char *start = dest;
+	int len = 0, len2 = 0, total = 0, j = 0;
 
 	if (dest == NULL || src == NULL)
 	{
 		return (NULL);
 	}
 
-	while (*dest != '\0')
+	while (dest[len] != '\0')
 	{
-		dest++;
+		len++;
+		total++;
 	}
 
-	while (*src != '\0')
+	while (src[len2] != '\0')
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		len2++;
+		total++;
 	}
 
-	*dest = '\0';
-	return (start);
+	dest = re_alloc(dest, len, sizeof(char) * total + 1);
+
+	while (src[j] != '\0')
+	{
+		dest[len] = src[j];
+		len++;
+		j++;
+	}
+
+	dest[len] = '\0';
+	return (dest);
 }

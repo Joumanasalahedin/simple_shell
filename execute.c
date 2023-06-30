@@ -10,40 +10,45 @@
 
 int execute(char **command, list_t *env, int num)
 {
-	char *path = NULL;
-	int status = 0;
+	char *path;
+	int status = 0, j = 0;
 	pid_t pid;
 
-	if (access(command[0], F_OK) == 0 && access(command[0], X_OK) == 0)
+	if (access(command[0], F_OK) == 0)
 	{
 		path = command[0];
+		j = 1;
 	}
 	else
 	{
 		path = find_exec(command[0], env);
-		if (path == NULL || access(path, X_OK) != 0)
-		{
-			n_found(command[0], num, env);
-			sh_free_double_ptr(command);
-			return (127);
-		}
+	}
+	
+	if (access(path, X_OK) != 0)
+	{
+		n_found(command[0], num, env);
+		sh_free_double_ptr(command);
+		return (127);
 	}
 
-	pid = fork();
-	if (pid == 0)
-	{
-		if (execve(path, command, NULL) == -1)
-		{
-			n_found(command[0], num, env);
-			exit_c(command, env);
-		}
-	}
 	else
 	{
-		wait(&status);
-		sh_free_double_ptr(command);
-		if (path != command[0])
-			free(path);
+		pid = fork();
+		if (pid == 0)
+		{
+			if (execve(path, command, NULL) == -1)
+			{
+				n_found(command[0], num, env);
+				exit_c(command, env);
+			}
+		}
+		else
+		{
+			wait(&status);
+			sh_free_double_ptr(command);
+			if (j == 0)
+				free(path);
+		}
 	}
 
 	return (0);
