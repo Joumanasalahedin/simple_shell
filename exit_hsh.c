@@ -10,26 +10,17 @@
 int cd_atoi(char *s)
 {
 	int j = 0;
-	int max = 1;
-	int min = 0;
+	unsigned int sum;
 
-	while (s[j] == ' ')
-		j++;
-	if (s[j] == '-')
+	while (s[j] != '\0')
 	{
-		max = -1;
+		if (s[j] >= '0' && s[j] <= '9')
+			sum = sum * 10 + (s[j] - '0');
+		if (s[j] > '9' || s[j] < '0')
+			return (-1);
 		j++;
 	}
-	else if (s[j] == '+')
-	{
-		j++;
-	}
-	while (s[j] >= '0' && s[j] <= '9')
-	{
-		min = min * 10 + (s[j] - '0');
-		j++;
-	}
-	return (max * min);
+	return (sum);
 }
 
 /**
