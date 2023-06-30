@@ -53,7 +53,6 @@ void non_interactive(list_t *env)
 			n++;
 			continue;
 		}
-
 		exit_stat = execute(toks, env, line_no);
 		n++;
 	}

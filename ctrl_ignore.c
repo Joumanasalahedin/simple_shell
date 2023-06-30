@@ -40,7 +40,7 @@ void ctrl_d(int c, char *command, list_t *env)
 
 char *ignore_spaces(char *str)
 {
-	while (*str == ' ')
+	while (*str != '\0' && (*str == ' ' || *str == '\n'))
 		str++;
 
 	return (str);
