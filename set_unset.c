@@ -17,16 +17,17 @@ int search_env(list_t *env, char *s)
 	while (env != NULL)
 	{
 		for (e = 0; (env->var)[e] == s[e]; e++)
+			;
+		if (s[e] == '\0')
 		{
-			if (s[e] == '\0')
-			{
-				return (index);
-			}
+			break;
 		}
 		env = env->next;
 		index++;
 	}
-	return (-1);
+	if (env == NULL)
+		return (-1);
+	return (index);
 }
 
 /**
@@ -61,6 +62,7 @@ int sh_setenv(list_t **env, char **s)
 	}
 	else
 	{
+		fresh_n = *env;
 		for (e = 0; e < idx; e++)
 		{
 			fresh_n = fresh_n->next;

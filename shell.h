@@ -28,7 +28,7 @@ typedef struct list
 
 void n_found(char *s, int c_f, list_t *env);
 void *re_alloc(void *ptr, unsigned int o_mem, unsigned int n_mem);
-int builtin_c(char **toks, list_t *env, int n);
+int builtin_c(char **toks, list_t *env, int n, char **command);
 char *int_string(int num);
 int number_len(int num);
 int search_env(list_t *env, char *s);

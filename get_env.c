@@ -28,14 +28,13 @@ char *h_getenv(char *s, list_t *env)
 
 	while (env != NULL)
 	{
+		en = 0;
 		while ((env->var)[en] == s[en])
 			en++;
 		if (s[en] == '\0' && (env->var)[en] == '=')
 			break;
 		env = env->next;
 	}
-	if (env == NULL)
-		return (NULL);
 	while (s[vars] != '\0')
 		vars++;
 	vars++;

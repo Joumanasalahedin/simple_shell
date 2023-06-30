@@ -57,7 +57,6 @@ char **token_string(char *str, char *delim)
 			index++;
 			si++;
 		}
-
 		tokens[position][index] = '\0';
 		position++;
 		si++;

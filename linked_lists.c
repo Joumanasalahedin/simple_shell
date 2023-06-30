@@ -57,18 +57,19 @@ list_t *add_node_end(list_t **head, char *str)
 	new_node->var = _strdup(str);
 	new_node->next = NULL;
 
-	if (*head == NULL)
+	current = *head;
+	if (current != NULL)
 	{
-		*head = new_node;
+		while (current->next != NULL)
+		{
+			current = current->next;
+		}
+		current->next = new_node;
 	}
 
 	else
 	{
-		current = *head;
-		while (current->next != NULL)
-			current = current->next;
-
-		current->next = new_node;
+		*head = new_node;
 	}
 
 	return (*head);
@@ -84,42 +85,40 @@ list_t *add_node_end(list_t **head, char *str)
 int delete_node_at_index(list_t **head, int index)
 {
 	list_t *temp;
-	list_t *current, *previous;
+	list_t *current;
 	int count = 0;
 
-	if (*head == NULL || index < 0)
+	if (*head == NULL)
 	{
 		return (-1);
 	}
 
 	if (index == 0)
 	{
-		temp = *head;
-		*head = (*head)->next;
-		free(temp->var);
-		free(temp);
+		current = (*head)->next;
+		free((*head)->var);
+		free(*head);
+		*head = current;
 		return (1);
 	}
 
-	current = *head;
-	previous = NULL;
+	count = 1;
+	temp = *head;
 
-	while (current != NULL)
+	while (count < index)
 	{
-		if (count == index)
+		if (temp == NULL)
 		{
-			previous->next = current->next;
-			free(current->var);
-			free(current);
 			return (-1);
 		}
-
-		previous = current;
-		current = current->next;
+		temp = temp->next;
 		count++;
 	}
-
-	return (-1);
+	current = temp->next;
+	temp->next = current->next;
+	free(current->var);
+	free(current);
+	return (1);
 }
 
 /**

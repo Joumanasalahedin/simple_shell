@@ -58,14 +58,11 @@ char *int_string(int num)
 int number_len(int num)
 {
 	int sum = 0;
+	int n = num;
 
-	if (num == 0)
-		return (1);
-	else if (num < 0)
-		num = -num;
-	while (num > 0)
+	while (n > 9 || n < -9)
 	{
-		num /= 10;
+		n /= 10;
 		sum++;
 	}
 	return (sum);

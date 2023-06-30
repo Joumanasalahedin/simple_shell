@@ -8,18 +8,12 @@
 
 void sh_free_double_ptr(char **s)
 {
-	char **tmp = s;
+	int j = 0;
 
-	if (s == NULL)
+	while (s[j] != NULL)
 	{
-		return;
-	}
-	while (!*tmp)
-	{
-		free(*tmp);
-
-		*tmp = NULL;
-		tmp++;
+		free(s[j]);
+		j++;
 	}
 	free(s);
 }

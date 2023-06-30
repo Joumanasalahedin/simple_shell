@@ -8,12 +8,13 @@
 
 int run_shell(char **environ)
 {
-	list_t *env = list_env(environ);
-	size_t line_no = 0, i, n;
-	int exit_stat = 0;
+	list_t *env;
+	size_t i = 0, n = 0;
+	int line_no = 0, exit_stat = 0;
 	char *command, *n_command;
 	char **token;
 
+	env = list_env(environ);
 	while (1)
 	{
 		line_no++;
@@ -21,7 +22,6 @@ int run_shell(char **environ)
 			write(STDOUT_FILENO, "$ ", 2);
 		else
 			non_interactive(env);
-
 		signal(SIGINT, ctrl_c);
 		command = NULL; i = 0;
 		i = _getline(&command);
@@ -34,14 +34,12 @@ int run_shell(char **environ)
 		command[n] = '\0';
 		if (command[0] == '\0')
 		{
-			free(n_command);
-			continue;
+			free(n_command); continue;
 		}
-
 		token = NULL; token = _strtok(command, " ");
 		if (n_command != NULL)
 			free(n_command);
-		exit_stat = builtin_c(token, env, line_no);
+		exit_stat = builtin_c(token, env, line_no, NULL);
 		if (exit_stat)
 			continue;
 		exit_stat = execute(token, env, line_no);
