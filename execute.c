@@ -37,7 +37,7 @@ int execute(char **command, list_t *env, int num)
 			if (execve(path, command, NULL) == -1)
 			{
 				n_found(command[0], num, env);
-				sh_exit(command, NULL, env, num);
+				exit_c(command, env);
 			}
 		}
 		else
@@ -49,5 +49,5 @@ int execute(char **command, list_t *env, int num)
 		}
 	}
 
-	return (status);
+	return (0);
 }
