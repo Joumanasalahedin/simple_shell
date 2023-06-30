@@ -47,8 +47,7 @@ void illegal_n(char *s, int cmd, list_t *env)
 	free(number);
 	write(STDOUT_FILENO, ": ", 2);
 	write(STDOUT_FILENO, "exit: illegal number: ", 22);
-	sum++;
-
+	sum = 0;
 	while (s[sum] != '\0')
 		sum++;
 	write(STDOUT_FILENO, s, sum);
