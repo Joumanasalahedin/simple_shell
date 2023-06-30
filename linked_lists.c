@@ -11,6 +11,8 @@ size_t print_list(list_t *h)
 	list_t *current = h;
 	size_t count = 0, length = 0;
 
+	if (h == NULL)
+		return (0);
 	while (current != NULL)
 	{
 		if (current->var == NULL)
@@ -19,6 +21,7 @@ size_t print_list(list_t *h)
 		}
 		else
 		{
+			length = 0;
 			while (current->var[length] != '\0')
 				length++;
 
