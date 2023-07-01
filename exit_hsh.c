@@ -10,13 +10,16 @@
 int cd_atoi(char *s)
 {
 	int j = 0;
-	unsigned int sum;
+	unsigned int sum = 0;
+
+	if (s == NULL)
+		return (0);
 
 	while (s[j] != '\0')
 	{
 		if (s[j] >= '0' && s[j] <= '9')
 			sum = sum * 10 + (s[j] - '0');
-		if (s[j] > '9' || s[j] < '0')
+		else
 			return (-1);
 		j++;
 	}
@@ -38,6 +41,8 @@ int sh_exit(char **s, char **cmd, list_t *env, int n)
 
 	if (s[1] != NULL)
 		val = cd_atoi(s[1]);
+	else
+		val = 0;
 	if (val == -1)
 	{
 		illegal_n(s[1], n, &env);
