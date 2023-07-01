@@ -105,7 +105,7 @@ void _cd_to(char *s, int cmd, list_t **env)
 	write(STDOUT_FILENO, number, sum);
 	free(number);
 	write(STDOUT_FILENO, ": ", 2);
-	write(STDOUT_FILENO, "cd: can't cd ", 16);
+	write(STDOUT_FILENO, "cd: can't cd ", 14);
 	sum = 0;
 
 	while (s[sum] != '\0')
