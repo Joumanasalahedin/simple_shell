@@ -15,6 +15,11 @@ int builtin_c(char **toks, list_t *env, int n, char **command)
 	{
 		return (sh_exit(toks, command, env, n));
 	}
+	else if (_strcmp(toks[0], "cd") == 0)
+	{
+		ch_cd(toks, &env, n);
+		return (1);
+	}
 	else if (_strcmp(toks[0], "env") == 0)
 	{
 		print_env(toks, env);

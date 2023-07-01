@@ -7,7 +7,7 @@
  * @env: variable write hsh
  */
 
-void n_found(char *s, int c_f, list_t *env)
+void n_found(char *s, int c_f, list_t **env)
 {
 	int sum = 0;
 	char *hsh, *numb;

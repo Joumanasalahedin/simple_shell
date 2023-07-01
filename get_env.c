@@ -21,24 +21,24 @@ int print_env(char **s, list_t *env)
  * Return: environment variable
  */
 
-char *h_getenv(char *s, list_t *env)
+char *h_getenv(char *s, list_t **env)
 {
 	int en = 0;
 	int vars = 0;
 
-	while (env != NULL)
+	while (*env != NULL)
 	{
 		en = 0;
-		while ((env->var)[en] == s[en])
+		while ((*env)->var[en] == s[en])
 			en++;
-		if (s[en] == '\0' && (env->var)[en] == '=')
+		if (s[en] == '\0' && ((*env)->var[en] == '='))
 			break;
-		env = env->next;
+		*env = (*env)->next;
 	}
 	while (s[vars] != '\0')
 		vars++;
 	vars++;
-	return (env_strdup(env->var, vars));
+	return (env_strdup((*env)->var, vars));
 }
 
 /**

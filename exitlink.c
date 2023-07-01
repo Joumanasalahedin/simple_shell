@@ -25,7 +25,7 @@ void sh_free_double_ptr(char **s)
  * @env: environment
  */
 
-void illegal_n(char *s, int cmd, list_t *env)
+void illegal_n(char *s, int cmd, list_t **env)
 {
 	int sum = 0;
 	char *hsh = NULL, *number = NULL;

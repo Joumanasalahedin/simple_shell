@@ -40,7 +40,7 @@ int sh_exit(char **s, char **cmd, list_t *env, int n)
 		val = cd_atoi(s[1]);
 	if (val == -1)
 	{
-		illegal_n(s[1], n, env);
+		illegal_n(s[1], n, &env);
 		sh_free_double_ptr(s);
 		return (2);
 	}

@@ -12,7 +12,7 @@ char *find_exec(char *command, list_t *env)
 	char *path, *cat = NULL, **tokens;
 	int i = 0;
 
-	path = h_getenv("PATH", env);
+	path = h_getenv("PATH", &env);
 	tokens = token_string(path, ":");
 	free(path);
 

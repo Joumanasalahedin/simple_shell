@@ -25,7 +25,7 @@ int execute(char **command, list_t *env, int num)
 	}
 	if (access(path, X_OK) != 0)
 	{
-		n_found(command[0], num, env);
+		n_found(command[0], num, &env);
 		sh_free_double_ptr(command);
 		return (127);
 	}
@@ -36,7 +36,7 @@ int execute(char **command, list_t *env, int num)
 		{
 			if (execve(path, command, NULL) == -1)
 			{
-				n_found(command[0], num, env);
+				n_found(command[0], num,&env);
 				exit_c(command, env);
 			}
 		}

@@ -26,7 +26,7 @@ typedef struct list
 
 } list_t;
 
-void n_found(char *s, int c_f, list_t *env);
+void n_found(char *s, int c_f, list_t **env);
 void *re_alloc(void *ptr, unsigned int o_mem, unsigned int n_mem);
 int builtin_c(char **toks, list_t *env, int n, char **command);
 char *int_string(int num);
@@ -34,11 +34,11 @@ int number_len(int num);
 int search_env(list_t *env, char *s);
 int sh_setenv(list_t **env, char **s);
 int sh_unsetenv(list_t **env, char **s);
-char *h_getenv(char *s, list_t *env);
+char *h_getenv(char *s, list_t **env);
 char *env_strdup(char *s, int b);
 list_t *list_env(char **env);
 void exit_c(char **s, list_t *env);
-void illegal_n(char *s, int cmd, list_t *env);
+void illegal_n(char *s, int cmd, list_t **env);
 int execute(char **comand, list_t *env, int num);
 int run_shell(char **environ);
 void sh_free_double_ptr(char **s);
@@ -52,6 +52,12 @@ size_t _getline(char **str);
 char *find_exec(char *command, list_t *env);
 char *s_ignore(char *str);
 void non_interactive(list_t *env);
+void cd_home(list_t **env, char *curr);
+int cd_setenv(list_t **env, char *n, char *directory);
+char *concat_str(char *s1, char *s2);
+int ch_cd(char **s, list_t **env, int num);
+int cd_exec(list_t **env, char *directory, char *curr, char *s, int num);
+void _cd_to(char *s, int cmd, list_t **env);
 
 /** strtok **/
 int token_length(char *input, int position, char delim);
@@ -60,6 +66,7 @@ char *ignore_delim(char *str, char delim);
 char **_strtok(char *str, char *delim);
 int c_delims(char *str, char delim);
 char **token_string(char *str, char *delim);
+char **separator(char *str);
 
 /** linked list **/
 size_t print_list(list_t *h);
