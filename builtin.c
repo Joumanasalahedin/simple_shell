@@ -23,7 +23,7 @@ int builtin_c(char **toks, list_t *env, int n, char **command)
 	else if (_strcmp(toks[0], "env") == 0)
 	{
 		print_env(toks, env);
-		return (1);
+		return (0);
 	}
 	else if (_strcmp(toks[0], "setenv") == 0)
 	{
