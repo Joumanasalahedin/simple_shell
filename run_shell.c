@@ -15,8 +15,7 @@ int run_shell(char **environ)
 	char **token;
 
 	env = list_env(environ);
-	do
-	{
+	do {
 		line_no++;
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, "$ ", 2);
